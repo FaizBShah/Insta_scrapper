@@ -6,7 +6,7 @@ Created on Wed Nov  6 17:58:02 2019
 """
 
 from urllib.request import urlopen
-from bs4 import BeautifulSoup
+from bs4 import BeautifulSoup as BS
 #import ssl
 import requests
 #import random
@@ -85,7 +85,7 @@ try:
     page = urlopen(insta_address)
 except:
     print("Could not load page")
-soup = bs(page, 'html.parser')
+soup = BS(page, 'html.parser')
 
 getinfo(soup)
 getstatus(soup)
