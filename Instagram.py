@@ -36,7 +36,7 @@ def getinfo(url_name):
     d="Posts: "+posts
     s=a+"\n"+b+"\n"+c+"\n"+d
     filename=insta_username+".txt"
-    with open(filename,"w+") as f1:
+    with open(filename,"w+",encoding="utf-8") as f1:
         f1.write(s)
         
 def getstatus(url_name):
@@ -50,6 +50,8 @@ def getstatus(url_name):
     if contempt==None:
         return 0
     a=contempt.text.find("description")
+    if a==-1:
+        return 0
     b=contempt.text.find("mainEntityofPage")
     sentence=contempt.text[a+14:b-3]
     l=sentence.split("\\n")
@@ -59,7 +61,7 @@ def getstatus(url_name):
         status=status+"\n"+i
     print(status)
     filename=insta_username+".txt"
-    with open(filename,"a") as f2:
+    with open(filename,"a",encoding="utf-8") as f2:
         f2.write(status)
     
 def getimage(url_name):
